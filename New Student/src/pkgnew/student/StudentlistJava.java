@@ -60,6 +60,33 @@ public class StudentlistJava {
                     System.out.println(st);
                 }
             }
+            else if (option == 2) {
+                int count = getNumberOfStudent();
+                File file = new File(Constants.TEXT_FILE_NAME);
+                BufferedReader br = null;
+                try {
+                    br = new BufferedReader(new FileReader(file));
+                } catch (FileNotFoundException ex) {
+                    System.out.println("Exception : " + ex.toString());
+                }
+
+                String[] ids = new String[count];
+
+                int i = 0;
+                String st;
+                while ((st = br.readLine()) != null) {
+                    if (st.equals("")) {
+                        continue;
+                    }
+                    ids[i] = st;
+                    i++;
+                }
+
+                int randNumber = randInt(0, ids.length - 1);
+
+                System.out.println("Random Student : " + ids[randNumber]);
+
+            }
             
             
              
