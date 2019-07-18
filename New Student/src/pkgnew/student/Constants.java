@@ -9,13 +9,6 @@ package pkgnew.student;
  *
  * @author user
  */
-public class NewStudent {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public class Constants {
+    public static String TEXT_FILE_NAME = "src\\\\studentlist\\\\java\\\\student.txt";
 }
