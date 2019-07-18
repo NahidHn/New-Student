@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkgnew.student;
+package studentlist.java;
 
-<<<<<<< HEAD
-=======
 import com.sun.corba.se.impl.orbutil.closure.Constant;
-import com.sun.org.apache.bcel.internal.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,30 +17,19 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
->>>>>>> step2
 /**
  *
  * @author user
  */
-<<<<<<< HEAD
-public class NewStudent {
-=======
 public class StudentlistJava {
->>>>>>> step2
 
     /**
      * @param args the command line arguments
      */
-<<<<<<< HEAD
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
-=======
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
 
-        String decision = null ;
+        String decision ;
         do {
             System.out.println("1. Show all student");
             System.out.println("2. Show random student");
@@ -57,8 +43,7 @@ public class StudentlistJava {
             int option = sc.nextInt();
 
             if (option == 1) {
-                File file;
-                file = new File(Constants.TEXT_FILE_NAME);
+                File file = new File(Constants.TEXT_FILE_NAME);
                 BufferedReader br = null;
                 try {
                     br = new BufferedReader(new FileReader(file));
@@ -72,8 +57,7 @@ public class StudentlistJava {
                     }
                     System.out.println(st);
                 }
-            }
-            else if (option == 2) {
+            } else if (option == 2) {
                 int count = getNumberOfStudent();
                 File file = new File(Constants.TEXT_FILE_NAME);
                 BufferedReader br = null;
@@ -99,9 +83,57 @@ public class StudentlistJava {
 
                 System.out.println("Random Student : " + ids[randNumber]);
 
+            } else if (option == 3) {
+                File file = new File(Constants.TEXT_FILE_NAME);
+                BufferedReader br = null;
+                try {
+                    br = new BufferedReader(new FileReader(file));
+                } catch (FileNotFoundException ex) {
+                    System.out.println("Exception : " + ex.toString());
+                }
+                String st;
+                int count = 0;
+                while ((st = br.readLine()) != null) {
+                    if (st.equals("")) {
+                        continue;
+                    }
+                    count = count + 1;
+                }
+                System.out.println("Number of student : " + count);
+            } else if (option == 4) {
+                FileWriter fx = new FileWriter(Constants.TEXT_FILE_NAME, true);
+                String newst = sc.next();
+                fx.write("\n" + newst);
+                fx.close();
+                System.out.println("Student Added");
+            } else if (option == 5) {
+                File file = new File(Constants.TEXT_FILE_NAME);
+                BufferedReader br = null;
+                try {
+                    br = new BufferedReader(new FileReader(file));
+                } catch (FileNotFoundException ex) {
+                    System.out.println("Exception : " + ex.toString());
+                }
+                System.out.print("Enter ID : ");
+                String checkst = sc.next();
+                String st;
+                int flag = 0;
+                while ((st = br.readLine()) != null) {
+                    if (st.equals(checkst)) {
+                        flag = 1;
+                    }
+                }
+                if (flag == 0) {
+                    System.out.println("Not Found");
+                } else {
+                    System.out.println("Found");
+                }
+            } else {
+                System.out.println("Select Correct Option");
             }
             
-            
+             System.out.println("Do you want to countinue [Y/N]");
+             decision = sc.next();
              
         }while(decision.equals("Y") ||decision.equals("y"));
       
@@ -116,8 +148,7 @@ public class StudentlistJava {
     }
 
     public static int getNumberOfStudent() throws IOException {
-        File file;
-        file = new File(Constants.TEXT_FILE_NAME);
+        File file = new File(Constants.TEXT_FILE_NAME);
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(file));
@@ -135,5 +166,5 @@ public class StudentlistJava {
         return count;
     }
 
->>>>>>> step2
 }
+s
